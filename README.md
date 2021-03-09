@@ -51,8 +51,6 @@ Single-cell RNA-seq data can be annotated and further analyzed as in the followi
 
 ![Data example](images/Data.png)
 
-The datasets with annotated transcriptional phases are in the data folder.
-
 
 ### Dependencies
 
