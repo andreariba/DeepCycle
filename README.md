@@ -1,18 +1,18 @@
 # Cell cycle analysis with RNA velocity and deep-learning
 
 The ability of a cell to replicate is at the core of many biological processes and single-cell RNA-seq allows the study of the mechanisms regulating the cell cycle without external perturbations. DeepCycle is a method that assign a angle (transcritional phase) to each cell in your dataset, that can be associated to the cell cycle stage with further analysis. The method is based on RNA velocity and an autoencoder, and has the ability to infer underlying circular structure in your data.
-CycleAE represents a reliable method to study the cell cycle in single-cell RNA-seq datasets.
+DeepCycle represents a reliable method to study the cell cycle in single-cell RNA-seq datasets.
 
 ![DeepCycle scheme](images/DeepCycle_scheme.png)
 
 ## Method
 
 In the current version a preprocessing step is required. The moments from scVelo have to be computed, i.e. you need to run pp.moments from scVelo (https://scvelo.readthedocs.io/) to generate imputed unspliced (Mu) and spliced (Ms) expressions.
-The preprocessed Anndata can then be used as input to CycleAE. More specifically, the inputs necessary to run CycleAE are:
+The preprocessed Anndata can then be used as input to DeepCycle. More specifically, the inputs necessary to run DeepCycle are:
 
 * anndata preprocessed with scvelo.pp.moments.
 * list of possible cycling genes for the organism of interest (e.g. GOterm cell_cycle). 
-* a gene to use as initial condition for the transcriptional phase. A good strategy to detect a cycling gene is to first run CycleAE with a random gene from the gene_list file together with the hotelling flag. The subdirectory CycleAE/hotelling will show genes selected to show at least two different states of expression.
+* a gene to use as initial condition for the transcriptional phase. A good strategy to detect a cycling gene is to first run DeepCycle with a random gene from the gene_list file together with the hotelling flag. The subdirectory DeepCycle/hotelling will show genes selected to show at least two different states of expression.
 * a minimum value of average expression for a gene. Suggested value around 1.0, depending on your sequencing depth per cell.
 * decide to run it on the GPUs, or not.
 * decide to run it or not with the hotelling filter on the list of genes.
