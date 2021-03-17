@@ -66,3 +66,7 @@ DeepCycle has the following dependencies and has been tested on the version of t
 * seaborn (tested on 0.10.1)
 
 
+###Contact
+
+For any question and problem, contact the author at arriba87(at)gmail.com.
+
