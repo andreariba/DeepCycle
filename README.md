@@ -50,7 +50,7 @@ The output Anndata contains a new observation variable adata.obs[\'cell_cycle_th
 
 * ./fits/: the folder contains unspliced-spliced patterns to check if the fitting procedure worked properly
 * ./DeepCycle_model/: TensorFlow model
-* ./training/: plots of the MSE and KL divergence during the training
+* ./training/: contains the plots of the MSE and KL divergence during the training
 * input_data.npz: the input data used to train the model
 * ./hotelling/ [only with the option --hotelling]: contains the gene showing more than one state of expression.
 
