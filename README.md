@@ -46,15 +46,15 @@ optional arguments:
                         
 ```
 
-The output Anndata contain a new observation variable adata.obs[\'cell_cycle_theta\'] that represents the circular variable related to the cycling genes. In the same folder of your run, DeepCycle outputs also:
+The output Anndata contains a new observation variable adata.obs[\'cell_cycle_theta\'] that represents the circular variable related to the cycling genes. In the same folder of your run, DeepCycle outputs also:
 
 * ./fits/: the folder contains unspliced-spliced patterns to check if the fitting procedure worked properly
 * ./DeepCycle_model/: TensorFlow model
-* ./training/: plot of the MSE and KL divergence during the training
+* ./training/: plots of the MSE and KL divergence during the training
 * input_data.npz: the input data used to train the model
 * ./hotelling/ [only with the option --hotelling]: contains the gene showing more than one state of expression.
 
-## Data
+## Examples
 
 Single-cell RNA-seq data can be annotated and further analyzed as in the following examples
 
