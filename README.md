@@ -54,7 +54,7 @@ The output Anndata contains a new observation variable adata.obs[\'cell_cycle_th
 * input_data.npz: the input data used to train the model
 * ./hotelling/ [only with the option --hotelling]: the genes showing more than one state of expression.
 
-If you do not find any cycling genes the results will not be reliable and It is possible you have to sequence deeper and increase the number of RNAs per cell.
+If you do not find any cycling genes the results will not be reliable. It is possible you have to sequence deeper and increase the number of RNAs per cell.
 
 ## Examples
 
