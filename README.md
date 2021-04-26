@@ -1,3 +1,5 @@
+
+
 # Cell cycle analysis with RNA velocity and deep-learning
 
 The ability of a cell to replicate is at the core of many biological processes and single-cell RNA-seq allows the study of the mechanisms regulating the cell cycle without external perturbations. DeepCycle is a method that assign an angle (transcritional phase) to each cell in your dataset, that can be associated to the cell cycle stage with further analysis. The method is based on RNA velocity and an autoencoder, and has the ability to infer underlying circular structure in your data.
@@ -57,12 +59,14 @@ The output Anndata contains a new observation variable adata.obs[\'cell_cycle_th
 If you do not find any cycling genes the results will not be reliable. It is possible you have to sequence deeper and increase the number of RNAs per cell.
 Instead, if you find the cycling patterns, but the fits are wrong, feel free to contact me (arriba87(at)gmail.com).
 
-## Examples
+## Data availability
 
 Single-cell RNA-seq data can be annotated and further analyzed as in the following examples
 
 ![Data example](images/Data.png)
 
+h5ad files for mESCs and human fibroblasts already annotated with the cell cycle theta variable can be downloaded from <a href="https://doi.org/10.5281/zenodo.4719436"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.4719436.svg" alt="DOI"></a>
+These anndata objects can be used to reproduce the main results of the manuscript <a href="https://www.biorxiv.org/content/10.1101/2021.03.17.435887v1">Cell cycle gene regulation dynamics revealed by RNA velocity and deep-learning</a>.
 
 ### Dependencies
 
