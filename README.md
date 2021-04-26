@@ -85,7 +85,7 @@ python DeepCycle.py \
 
 ```
 
-where you have to substitute the input_data with the anndata that you can find on Zenodo. To reproduce the human fibroblasts, results you have to run the DeepCycle on the subpopulation identified by the leiden clustering as 0, change the gene_list to the human cell cycle GO annotation and choose as initial gene MELK.
+where you have to substitute the input_data with the anndata that you can find on Zenodo. To reproduce the results for the human fibroblast, you have to run the DeepCycle on the subpopulation identified by the leiden clustering as 0, change the gene_list to the human cell cycle GO annotation and choose as initial gene MELK.
 
 ### Dependencies
 
