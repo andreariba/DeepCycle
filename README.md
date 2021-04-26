@@ -69,14 +69,15 @@ Single-cell RNA-seq data can be annotated and further analyzed as in the followi
   <img src="images/Data.svg">
 </p>
 
-h5ad files for mESCs and human fibroblasts already annotated with the cell cycle theta variable can be downloaded from Zenodo <a href="https://doi.org/10.5281/zenodo.4719436">![ZenodoDOI](images/zenodo.4719436.svg)</a>
-These anndata objects can be used to reproduce the main results of the manuscript <a href="https://www.biorxiv.org/content/10.1101/2021.03.17.435887v1">Cell cycle gene regulation dynamics revealed by RNA velocity and deep-learning</a>.
+h5ad files for mESCs and human fibroblasts already annotated with the cell cycle phase can be downloaded from Zenodo <a href="https://doi.org/10.5281/zenodo.4719436">![ZenodoDOI](images/zenodo.4719436.svg)</a>.
+
+These anndata objects have been used to reproduce the results in the manuscript <a href="https://www.biorxiv.org/content/10.1101/2021.03.17.435887v1">Cell cycle gene regulation dynamics revealed by RNA velocity and deep-learning</a>.
 
 The command to rerun DeepCycle on the mESC dataset is the following
 ```
 python DeepCycle.py \
     --input_adata adata_mESC.h5ad \
-    --gene_list go_annotation/GO_cell_cycle_genes.txt \
+    --gene_list go_annotation/GO_cell_cycle_annotation_mouse.txt \
     --base_gene Nusap1 \
     --expression_threshold 0.5 \
     --gpu --hotelling \
@@ -84,7 +85,7 @@ python DeepCycle.py \
 
 ```
 
-where you have to substitute the input_data with the anndata that you can find on Zenodo.
+where you have to substitute the input_data with the anndata that you can find on Zenodo. To reproduce the human fibroblasts, results you have to run the DeepCycle on the subpopulation identified by the leiden clustering as 0, change the gene_list to the human cell cycle GO annotation and choose as initial gene MELK.
 
 ### Dependencies
 
