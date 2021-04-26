@@ -65,7 +65,7 @@ Single-cell RNA-seq data can be annotated and further analyzed as in the followi
 
 ![Data example](images/Data.png)
 
-h5ad files for mESCs and human fibroblasts already annotated with the cell cycle theta variable can be downloaded from Zenodo <a href="https://doi.org/10.5281/zenodo.4719436">![ZenodoDOI](images/zenodo.4719436.png)</a>
+h5ad files for mESCs and human fibroblasts already annotated with the cell cycle theta variable can be downloaded from Zenodo <a href="https://doi.org/10.5281/zenodo.4719436">![ZenodoDOI](images/zenodo.4719436.svg)</a>
 These anndata objects can be used to reproduce the main results of the manuscript <a href="https://www.biorxiv.org/content/10.1101/2021.03.17.435887v1">Cell cycle gene regulation dynamics revealed by RNA velocity and deep-learning</a>.
 
 The command to rerun DeepCycle on the mESC dataset is the following
