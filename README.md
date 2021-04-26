@@ -6,7 +6,7 @@ The ability of a cell to replicate is at the core of many biological processes a
 DeepCycle represents a reliable method to study the cell cycle in single-cell RNA-seq datasets.
 
 <p align="center">
-  <img width="460" height="300" src="images/DeepCycle_scheme.svg">
+  <img src="images/DeepCycle_scheme.svg">
 </p>
 
 ## Method
@@ -66,7 +66,7 @@ Instead, if you find the cycling patterns, but the fits are wrong, feel free to 
 Single-cell RNA-seq data can be annotated and further analyzed as in the following examples
 
 <p align="center">
-  <img width="460" height="300" src="images/Data.svg">
+  <img src="images/Data.svg">
 </p>
 
 h5ad files for mESCs and human fibroblasts already annotated with the cell cycle theta variable can be downloaded from Zenodo <a href="https://doi.org/10.5281/zenodo.4719436">![ZenodoDOI](images/zenodo.4719436.svg)</a>
