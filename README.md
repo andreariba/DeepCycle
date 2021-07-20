@@ -41,7 +41,7 @@ optional arguments:
   --base_gene BASE_GENE
                         Gene used to have an initial guess of the phase.
   --expression_threshold EXPRESSION_THRESHOLD
-                        Unsplced/spliced expression threshold.
+                        Unspliced/spliced expression threshold.
   --gpu [GPU]           Use GPUs.
   --hotelling [HOTELLING]
                         Use Hotelling filter.
@@ -93,10 +93,21 @@ where you have to substitute the input_data with the anndata that you can find o
   <img src="images/DeepCycle_structure_training.svg">
 </p>
 
-The input and output layers of the autoencoder consist of densely connected layers of size twice the number of input genes. The densely connected layers in the blue boxes have a size of 4 times the number of genes and are activated through a leaky ReLU function. The orange box calculates the atan2 for the gene selected as input gene and concatenates this value with the output of the dense layers from the first part of the encoder. The concatenation is feeded to a Dense layer of size four times the number of genes and outputs a real number (𝜽). The real number is the input of the decoder that transforms it in (cos(𝜽), sin(𝜽)) with the layer Circularize. The bidimensional vector is then feeded to a series of densely connected layers till the output layer. The GaussianNoise layers add gaussian noise to the inputs to avoid the neural network overfitting the data. 
-The training is performed in 2 steps: 1) training the encoder on the phases estimated from the input gene (atan2 of z-scored spliced and unspliced reads); 2) training encoder+decoder to reconstruct the unspliced-spliced reads. Both training steps have an early stop when they reach a plateau
+The input and output layers of the autoencoder consist of densely connected layers of size twice the number of input genes. The densely connected layers in the blue boxes have a size of 4 times the number of genes and are activated through a leaky ReLU function. The orange box calculates the atan2 for the gene selected as input gene and concatenates this value with the output of the dense layers from the first part of the encoder. The concatenation is feeded to a Dense layer of size four times the number of genes and outputs a real number (𝜽). The real number is the input of the decoder that transforms it in (cos(𝜽), sin(𝜽)) with the layer Circularize. The bidimensional vector is then feeded to a series of densely connected layers till the output layer. The GaussianNoise layers add gaussian noise to the inputs to avoid the neural network overfitting the data. The training is performed in 2 steps:
+
+1. training the encoder on the phases estimated from the input gene (atan2 of z-scored spliced and unspliced reads);
+2. training encoder+decoder to reconstruct the unspliced-spliced reads.
+
+Both training steps have an early stop when they reach a plateau
 tf.keras.callbacks.EarlyStopping(monitor='val_loss', min_delta=0.0, patience=20, verbose=1, mode='auto', restore_best_weights=True) and the learning rate decreases accordingly with  tf.keras.callbacks.ReduceLROnPlateau(monitor='val_loss', factor=0.8, patience=5, min_lr=0.00001). 17% of the input cells are used as validation set and the training is performed in batches of 5 cells. The optimization has been performed with Adam on the Mean Squared Error (MSE) between the input and the output.
 
+## Automated detection of the transitions between cell cycle phases
+
+Coming soon ...
+
+<p align="center">
+  <img src="images/automated_transition_detection.svg">
+</p>
 
 ### Dependencies
 
