@@ -95,7 +95,7 @@ The input and output layers of the autoencoder consist of densely connected laye
 2. training encoder+decoder to reconstruct the unspliced-spliced reads.
 
 <p align="center">
-  <img width=80% src="images/DeepCycle_structure_training.svg">
+  <img width=60% src="images/DeepCycle_structure_training.svg">
 </p>
 
 Both training steps have an early stop when they reach a plateau
@@ -106,7 +106,7 @@ tf.keras.callbacks.EarlyStopping(monitor='val_loss', min_delta=0.0, patience=20,
 Coming soon ...
 
 <p align="center">
-  <img width=80% src="images/automated_transition_detection.svg">
+  <img width=70% src="images/automated_transition_detection.svg">
 </p>
 
 ### Dependencies
