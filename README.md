@@ -102,7 +102,7 @@ tf.keras.callbacks.EarlyStopping(monitor='val_loss', min_delta=0.0, patience=20,
 
 ## Automated detection of the transitions between cell cycle phases
 
-The script in ./theta_annotation/ runs the estimation of the thetas associated to the different phase transitions (G1/S, S/G2 and M/G1). The input anndata has to contains the obs['cell_cycle_theta'] and the layers 'Ms' and 'Mu' from scVelo.
+The script estimate_cell_cycle_transitions.py in ./scripts/ runs the estimation of the thetas associated to the different phase transitions (G1/S, S/G2 and M/G1). The input anndata has to contains the obs['cell_cycle_theta'] and the layers 'Ms' and 'Mu' from scVelo.
 ```
 $python estimate_cell_cycle_transitions.py --help
 usage: estimate_cell_cycle_transitions.py [-h] --input_adata INPUT_ADATA
