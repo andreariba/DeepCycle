@@ -76,13 +76,12 @@ These anndata objects have been used to reproduce the results in the manuscript 
 The command to rerun DeepCycle on the mESC dataset is the following
 ```
 python DeepCycle.py \
-    --input_adata adata_mESC.h5ad \
-    --gene_list go_annotation/GO_cell_cycle_annotation_mouse.txt \
-    --base_gene Nusap1 \
-    --expression_threshold 0.5 \
-    --gpu --hotelling \
-    --output_adata adata_mESC_DeepCycle.h5ad
-
+  --input_adata adata_mESC.h5ad \
+  --gene_list go_annotation/GO_cell_cycle_annotation_mouse.txt \
+  --base_gene Nusap1 \
+  --expression_threshold 0.5 \
+  --gpu --hotelling \
+  --output_adata adata_mESC_DeepCycle.h5ad
 ```
 
 where you have to substitute the input_data with the anndata that you can find on Zenodo. To reproduce the results for the human fibroblast, you have to run the DeepCycle on the subpopulation identified by the leiden clustering as 0, change the gene_list to the human cell cycle GO annotation and choose as initial gene MELK.
@@ -103,9 +102,9 @@ tf.keras.callbacks.EarlyStopping(monitor='val_loss', min_delta=0.0, patience=20,
 
 ## Automated detection of the transitions between cell cycle phases
 
-The script in ./theta_annotation/ runs the estimation of the different thetas associated to the different phase transitions. The input anndata has to contains the obs['cell_cycle_theta'] and the layers 'Ms' and 'Mu' from scVelo.
+The script in ./theta_annotation/ runs the estimation of the thetas associated to the different phase transitions (G1/S, S/G2 and M/G1). The input anndata has to contains the obs['cell_cycle_theta'] and the layers 'Ms' and 'Mu' from scVelo.
 ```
-python estimate_cell_cycle_transitions.py --help
+$python estimate_cell_cycle_transitions.py --help
 usage: estimate_cell_cycle_transitions.py [-h] --input_adata INPUT_ADATA
                                           --gene_phase_dict GENE_PHASE_DICT
 
@@ -119,11 +118,27 @@ optional arguments:
   --gene_phase_dict GENE_PHASE_DICT
                         Dictionary containing the list of genes associated
                         with S and G2M phases.
+  --output_npy_transitions OUTPUT_NPY_TRANSITIONS
+                        Output npy array with thetas in the order: G1/S, M/G1,
+                        and possible S/G2.
+  --output_svg_plot OUTPUT_SVG_PLOT
+                        SVG plot with all the scores and transitions.
 
 ```
 
+An example of the command for the mESC can be
 
+```
+python estimate_cell_cycle_transitions.py 
+  --input_adata adata_mESC_DeepCycle.h5ad 
+  --gene_phase_dict ./theta_annotation/gene_phase_dict.json
+  --output_npy_transitions ./theta_transitions.npy
+  --output_svg_plot ./cell_cycle_phase_detection.svg
+```
+The estimation outputs:
 
+* a numpy array with the thetas associated to the different transitions, in order, G1/S, M/G1 and all the possible S/G2.
+* an svg figure with the scores and the identified transitions, see examples below.
 
 <p align="center">
   <img width=70% src="images/automated_transition_detection.svg">
