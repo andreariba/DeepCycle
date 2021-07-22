@@ -137,7 +137,7 @@ python estimate_cell_cycle_transitions.py
 ```
 The estimation outputs:
 
-* a numpy array with the thetas associated to the different transitions, in order, G1/S, M/G1 and all the possible S/G2.
+* a numpy array with the thetas associated to the different transitions, in order, G1/S, M/G1 and all the possible S/G2 in between the G1/S and M/G1 transitions.
 * an svg figure with the scores and the identified transitions, see examples below.
 
 <p align="center">
