@@ -103,7 +103,27 @@ tf.keras.callbacks.EarlyStopping(monitor='val_loss', min_delta=0.0, patience=20,
 
 ## Automated detection of the transitions between cell cycle phases
 
-Coming soon ...
+The script in ./theta_annotation/ runs the estimation of the different thetas associated to the different phase transitions. The input anndata has to contains the obs['cell_cycle_theta'] and the layers 'Ms' and 'Mu' from scVelo.
+```
+python estimate_cell_cycle_transitions.py --help
+usage: estimate_cell_cycle_transitions.py [-h] --input_adata INPUT_ADATA
+                                          --gene_phase_dict GENE_PHASE_DICT
+
+Estimate cell cycle phase transitions.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --input_adata INPUT_ADATA
+                        Anndata input file preprocessed with velocyto, scvelo
+                        (moments) and DeepCycle.
+  --gene_phase_dict GENE_PHASE_DICT
+                        Dictionary containing the list of genes associated
+                        with S and G2M phases.
+
+```
+
+
+
 
 <p align="center">
   <img width=70% src="images/automated_transition_detection.svg">
