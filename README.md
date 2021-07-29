@@ -144,7 +144,7 @@ The estimation outputs:
   <img width=70% src="images/automated_transition_detection.svg">
 </p>
 
-### Dependencies
+### Dependencies and Conda environment
 
 DeepCycle has the following dependencies and has been tested on the version of the packages in the parenthesis:
 * python (tested on 3.7.9)
@@ -157,7 +157,7 @@ DeepCycle has the following dependencies and has been tested on the version of t
 * matplotlib (tested on 3.3.1)
 * seaborn (tested on 0.10.1)
 
-The environment used to develop DeepCycle is stored in the yml file, DeepCycle_env.yml.
+The environment used to develop DeepCycle is stored in the yml file "DeepCycle_env.yml".
 You can create a copy of the DeepCycle environment by running:
 ```
 conda env create -f DeepCycle_env.yml
