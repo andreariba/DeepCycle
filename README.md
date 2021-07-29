@@ -162,6 +162,10 @@ You can create a copy of the DeepCycle environment by running:
 ```
 conda env create -f DeepCycle_env.yml
 ```
+and activate it with:
+```
+conda activate DeepCycle
+```
 
 ### Contact
 
