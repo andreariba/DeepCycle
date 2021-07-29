@@ -157,6 +157,11 @@ DeepCycle has the following dependencies and has been tested on the version of t
 * matplotlib (tested on 3.3.1)
 * seaborn (tested on 0.10.1)
 
+The environment used to develop DeepCycle is stored in the yml file, DeepCycle_env.yml.
+You can create a copy of the DeepCycle environment by running:
+```
+conda env create -f DeepCycle_env.yml
+```
 
 ### Contact
 
