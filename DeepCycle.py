@@ -415,12 +415,13 @@ print("[Model input shape]:", input_shape)
 
 #BUILD THE INPUT DATASET OBJECTS
 e_dataset = tf.data.Dataset.from_tensor_slices((np_data,angles)).shuffle(1000).batch(BATCH_SIZE)
-eval_e_dataset = e_dataset.take(n_cells_to_validation)
-train_e_dataset = e_dataset.skip(n_cells_to_validation)
+n_batches_to_validation = math.ceil(len(e_dataset)*fraction_of_cells_to_validation)
+eval_e_dataset = e_dataset.take(n_batches_to_validation)
+train_e_dataset = e_dataset.skip(n_batches_to_validation)
 
 ae_dataset = tf.data.Dataset.from_tensor_slices((np_data,np_data)).shuffle(1000).batch(BATCH_SIZE)
-eval_ae_dataset = ae_dataset.take(n_cells_to_validation)
-train_ae_dataset = ae_dataset.skip(n_cells_to_validation)
+eval_ae_dataset = ae_dataset.take(n_batches_to_validation)
+train_ae_dataset = ae_dataset.skip(n_batches_to_validation)
 
 #FUNCTION TO PLOT THE TRAINING
 def plot_training(fit):
