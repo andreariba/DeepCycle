@@ -355,7 +355,7 @@ def generate_input(list_of_genes, adata):
         try:
             n = gene_list.index(gene)
             df = pd.DataFrame({ 'spliced':adata.layers['Ms'][:,n], 'unspliced':adata.layers['Mu'][:,n] })
-            if (df.mean()<0.5).all():
+            if (df.mean()<expression_threshold).all():
                 list_of_genes.remove(gene)
                 continue
         except ValueError:
