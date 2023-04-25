@@ -415,7 +415,7 @@ print("[Model input shape]:", input_shape)
 
 #BUILD THE INPUT DATASET OBJECTS
 e_dataset = tf.data.Dataset.from_tensor_slices((np_data,angles)).shuffle(1000).batch(BATCH_SIZE)
-n_batches_to_validation = math.ceil(len(e_dataset)*fraction_of_cells_to_validation)
+n_batches_to_validation = math.ceil(tf.data.experimental.cardinality(e_dataset).numpy() * fraction_of_cells_to_validation)
 eval_e_dataset = e_dataset.take(n_batches_to_validation)
 train_e_dataset = e_dataset.skip(n_batches_to_validation)
 
